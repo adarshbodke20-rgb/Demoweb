@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Anatomy of God — an independent exploration of human belief, the idea of God, morality, and the questions behind them.">
+  <meta name="theme-color" content="#f4f1eb">
+  <title>Anatomy of God — A Book by Adarsh Bodke</title>
+  <style>
+    :root {
+      --paper: #f4f1eb;
+      --ink: #191919;
+      --muted: #68645e;
+      --line: #d8d2c8;
+      --accent: #9c342d;
+      --white: #fffefa;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Arial, Helvetica, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--paper); color: var(--ink);
+      font-family: var(--sans); line-height: 1.65;
+    }
+    a { color: inherit; }
+    .wrap { width: min(1100px, calc(100% - 44px)); margin: auto; }
+    header {
+      border-bottom: 1px solid var(--line); position: sticky; top: 0;
+      background: rgba(244,241,235,.94); backdrop-filter: blur(10px); z-index: 10;
+    }
+    .nav { min-height: 68px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { font-family: var(--serif); font-size: 19px; letter-spacing: .04em; text-decoration:none; }
+    nav { display:flex; gap:22px; flex-wrap:wrap; }
+    nav a { text-decoration:none; color:var(--muted); font-size:12px; letter-spacing:.08em; text-transform:uppercase; }
+    nav a:hover { color:var(--accent); }
+    .hero { min-height: 650px; display:grid; grid-template-columns: 1.1fr .9fr; align-items:center; gap:50px; padding:85px 0 90px; }
+    .eyebrow { color:var(--accent); font-size:11px; letter-spacing:.22em; text-transform:uppercase; font-weight:bold; }
+    h1 { font: clamp(54px, 8vw, 100px)/.98 var(--serif); letter-spacing:-.055em; margin:22px 0; max-width:720px; }
+    .subtitle { font: italic clamp(19px, 2.5vw, 25px)/1.4 var(--serif); color:#48443e; max-width:560px; }
+    .intro { max-width:540px; color:var(--muted); margin:26px 0 32px; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; }
+    .btn { display:inline-block; padding:13px 19px; border:1px solid var(--ink); text-decoration:none; font-size:11px; letter-spacing:.1em; text-transform:uppercase; transition:.2s; }
+    .btn.primary { background:var(--ink); color:var(--white); }
+    .btn:hover { background:var(--accent); border-color:var(--accent); color:white; }
+    .book-stage { display:flex; justify-content:center; align-items:center; padding:30px; }
+    .book {
+      width:min(300px, 75vw); aspect-ratio: .68; background:#252322; color:#f4eee4;
+      box-shadow: 18px 22px 35px rgba(0,0,0,.2), inset 7px 0 10px rgba(255,255,255,.04);
+      padding:34px 28px; display:flex; flex-direction:column; justify-content:space-between;
+      border-left:7px solid #171615; position:relative; overflow:hidden;
+    }
+    .book:after { content:""; position:absolute; width:240px; height:240px; border:1px solid rgba(201,157,125,.35); border-radius:50%; right:-110px; bottom:65px; box-shadow:0 0 0 18px rgba(201,157,125,.035),0 0 0 38px rgba(201,157,125,.025); }
+    .book small { letter-spacing:.22em; font-size:8px; color:#c7b9a8; }
+    .book strong { font: clamp(29px, 4vw, 43px)/.98 var(--serif); letter-spacing:-.04em; max-width:220px; position:relative; z-index:1; }
+    .book em { font:italic 12px var(--serif); color:#c7b9a8; position:relative; z-index:1; }
+    .book span { font-size:9px; letter-spacing:.18em; text-transform:uppercase; color:#c7b9a8; }
+    section { padding:88px 0; border-top:1px solid var(--line); }
+    .section-head { display:grid; grid-template-columns:.7fr 1.3fr; gap:35px; margin-bottom:38px; }
+    h2 { font: clamp(35px, 5vw, 55px)/1.05 var(--serif); letter-spacing:-.04em; margin:8px 0 0; }
+    .section-copy { color:var(--muted); max-width:650px; }
+    .section-copy p:first-child { margin-top:0; }
+    .themes { display:grid; grid-template-columns:repeat(2,1fr); gap:0 35px; border-top:1px solid var(--line); }
+    .theme { padding:23px 0; border-bottom:1px solid var(--line); }
+    .theme b { display:block; font:23px var(--serif); margin-bottom:7px; }
+    .theme p { margin:0; color:var(--muted); font-size:14px; }
+    .note { background:var(--ink); color:#f4f1eb; padding:60px; display:grid; grid-template-columns:1fr 1fr; gap:35px; align-items:center; }
+    .note h2 { color:#f4f1eb; }
+    .note p { color:#c8c1b7; margin:0; }
+    .author { display:grid; grid-template-columns:.65fr 1.35fr; gap:55px; align-items:start; }
+    .initials { width:150px; height:180px; border:1px solid var(--line); display:grid; place-items:center; font:58px var(--serif); color:var(--accent); }
+    .author h2 { margin-bottom:20px; }
+    .author p { color:var(--muted); max-width:680px; }
+    .why { font:italic 27px/1.35 var(--serif); color:var(--ink)!important; border-left:2px solid var(--accent); padding-left:20px; margin:25px 0; }
+    .review { text-align:center; max-width:700px; margin:auto; }
+    .review h2 { margin-bottom:18px; }
+    .review p { color:var(--muted); }
+    footer { border-top:1px solid var(--line); padding:28px 0; color:var(--muted); font-size:12px; }
+    .foot { display:flex; justify-content:space-between; gap:15px; flex-wrap:wrap; }
+    @media (max-width:760px) {
+      .nav { align-items:flex-start; flex-direction:column; padding:15px 0; }
+      nav { gap:12px 17px; }
+      .hero { grid-template-columns:1fr; gap:15px; padding:65px 0; }
+      .book-stage { padding:20px 0 0; }
+      .section-head,.author,.note { grid-template-columns:1fr; }
+      section { padding:65px 0; }
+      .note { padding:35px 25px; }
+    }
+    @media (max-width:480px) {
+      .wrap { width:min(100% - 32px, 1100px); }
+      nav a { font-size:10px; }
+      .themes { grid-template-columns:1fr; }
+      .book { width:230px; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home">ANATOMY OF GOD</a>
+    <nav aria-label="Main navigation">
+      <a href="#book">The Book</a>
+      <a href="#questions">Questions</a>
+      <a href="#author">Author</a>
+      <a href="#readers">Readers</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero" id="home">
+    <div>
+      <div class="eyebrow">A book by Adarsh Bodke</div>
+      <h1>Anatomy<br>of God</h1>
+      <div class="subtitle">Understanding the human need for the divine.</div>
+      <p class="intro">An exploration of human belief, the idea of God, morality and the questions that shape the way people understand the world.</p>
+      <div class="actions">
+        <a class="btn primary" href="#book">Explore the book</a>
+        <a class="btn" href="#author">About the author</a>
+      </div>
+    </div>
+    <div class="book-stage" aria-label="Illustrative book cover concept">
+      <div class="book">
+        <small>AN EXPLORATION OF HUMAN BELIEF</small>
+        <strong>ANATOMY<br>OF GOD</strong>
+        <em>Understanding the human need for the divine</em>
+        <span>ADARSH BODKE</span>
+      </div>
+    </div>
+  </div>
+
+  <section id="book">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="eyebrow">01 / The book</div><h2>A question worth examining.</h2></div>
+        <div class="section-copy">
+          <p>Why did the idea of God become such a powerful part of human life?</p>
+          <p><em>Anatomy of God</em> approaches this question through curiosity about humanity: how people make sense of uncertainty, how beliefs take shape, and how ideas about the divine become connected with everyday life.</p>
+          <p>This is a personal, independent writing project. It does not ask readers to accept a conclusion without thought. It invites them to examine the questions, consider the explanations and think for themselves.</p>
+        </div>
+      </div>
+      <div class="themes">
+        <div class="theme"><b>Human belief</b><p>How people form beliefs and give meaning to experiences they do not fully understand.</p></div>
+        <div class="theme"><b>Psychology</b><p>How human needs, patterns of thought and the search for protection may shape belief.</p></div>
+        <div class="theme"><b>Morality</b><p>How ideas about right and wrong become connected with religion, society and human life.</p></div>
+        <div class="theme"><b>Human origins</b><p>How early people may have interpreted the natural world and the unknown around them.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="note">
+      <div><div class="eyebrow">A thought to begin with</div><h2>Why do we believe?<br>Why do we follow?</h2></div>
+      <p>And why do we sometimes accept ideas without examining them? Asking questions does not have to mean rejecting something. It can be the beginning of understanding.</p>
+    </div>
+  </div>
+
+  <section id="questions">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="eyebrow">02 / Beyond the title</div><h2>Keep asking why.</h2></div>
+        <div class="section-copy">
+          <p>This book opens a conversation rather than closing one. Readers may agree, disagree, question its reasoning or bring different perspectives.</p>
+          <p>As the project develops, this space can feature supplementary essays, references, clarifications and responses to thoughtful questions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="author">
+    <div class="wrap author">
+      <div><div class="eyebrow">03 / The author</div><div class="initials" aria-hidden="true">AB</div></div>
+      <div>
+        <h2>Adarsh Bodke</h2>
+        <p>Adarsh Bodke is a biology student from India. His interests extend beyond his academic studies into science, human nature, philosophy and the many questions surrounding life and human existence.</p>
+        <p>He has a habit of asking one question about almost everything: Why?</p>
+        <p class="why">Why do we believe? Why do we follow? Why do we accept? Why do we consider certain things right or wrong? And, perhaps most importantly, why don't we question them more often?</p>
+        <p>For him, asking why is not about disagreeing with everything, but about understanding things beyond their familiar explanations.</p>
+        <p><em>Anatomy of God</em> is his first book, an independent writing project developed alongside his academic pursuits. It reflects his personal curiosity about humanity, belief and the origins of the idea of God.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="readers">
+    <div class="wrap review">
+      <div class="eyebrow">04 / For readers</div>
+      <h2>The conversation continues.</h2>
+      <p>Have you read <em>Anatomy of God</em>? Thoughtful responses, questions and honest criticism are welcome. Reader reviews and official book links will be added here when the book is published.</p>
+      <p><strong>Read carefully. Think independently. Ask why.</strong></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="year">2026</span> Adarsh Bodke · Anatomy of God</span>
+    <span>An independent book project.</span>
+  </div>
+</footer>
+</body>
+</html>
